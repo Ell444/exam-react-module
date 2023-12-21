@@ -21,7 +21,7 @@ export default () => {
 
     return (
         <div>
-            <h1>Who are you searching for?</h1>
+            <h1 className="search-title">Who are you searching for?</h1>
             <SearchBar onSearch={search} />
             {error && <div className="error">{error}</div>}
             <div>
@@ -29,8 +29,8 @@ export default () => {
                     <div className="search-page-actors">
                         <PersonCard
                             key={p.id}
-                            name={p.name}
                             imagePath={`https://image.tmdb.org/t/p/w500/${p.profile_path}`}
+                            name={p.name}
                             sex={p.gender === 2 ? 'Male' : 'Female'}
                             occupation={p.known_for_department}
                             popularity={p.popularity}

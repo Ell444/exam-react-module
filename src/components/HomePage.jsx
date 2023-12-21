@@ -11,9 +11,7 @@ export default () => {
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/trending/person/day?api_key=${apiKey}`)
             .then(response => response.json())
-            .then(obj => {
-                setPersons(obj.results)
-            })
+            .then(obj => setPersons(obj.results))
             .catch(error => {
                 setError('There was an error. Please try again!');
                 console.error(error);
@@ -30,11 +28,12 @@ export default () => {
                     <div>Loading...</div>
                 }
                 {persons.length !== 0 &&
-                    <div className="person-list">
+                    <div className="persons-list">
                         {persons.map((person) => (
                             <div key={person.id} className="person-card">
                                 <PersonCard
-                                    key={person.id}
+                                    key={`Card di${person.id}`}
+                                    id={person.id}
                                     name={person.name}
                                     imagePath={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
                                     sex={person.gender === 2 ? 'Male' : 'Female'}
