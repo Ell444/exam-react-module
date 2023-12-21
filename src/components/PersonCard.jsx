@@ -14,7 +14,7 @@ export default ({ id, name, occupation, sex, popularity, works, imagePath }) => 
                     <p><strong>Occupation:</strong>{occupation}</p>
                     <p><strong>Popularity:</strong> {popularity}</p>
                     <h4>Most famous movies</h4>
-                    <div>{works}</div>
+                    <div>{works[0]}</div>
                 </section>
 
             </div>

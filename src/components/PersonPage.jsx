@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import dayjs from "dayjs";
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -31,17 +31,21 @@ export default () => {
     /* Per correttezza, questo l'ho trovato cercando una soluzione su internet e aiutandomi con la guida di day.js */
 
     return (<>
+        {id === undefined ?
+            <Navigate to="/" /> /*Not working. :(*/
+            :
+            <div className="person-page">
+                <p><strong>Name: </strong>{person.name}</p>
+                <p><strong>Sex:</strong> {person.gender === 2 ? 'Male' : 'Female'}</p>
+                <p><strong>Age: </strong>{age} year old</p>
+                <p><strong>Profession:</strong> {person.known_for_department}</p>
+                <figure>
+                    <img src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`} alt={`Picture of ${person.name}`} />
+                </figure>{person.profile_path}
+                <p> <strong>Biography:</strong> {person.biography}</p>
+            </div>
+        }
 
-        <div className="person-page">
-            <p><strong>Name: </strong>{person.name}</p>
-            <p><strong>Sex:</strong> {person.gender === 2 ? 'Male' : 'Female'}</p>
-            <p><strong>Age: </strong>{age} year old</p>
-            <p><strong>Profession:</strong> {person.known_for_department}</p>
-            <figure>
-                <img src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`} alt={`Picture of ${person.name}`} />
-            </figure>{person.profile_path}
-            <p> <strong>Biography:</strong> {person.biography}</p>
-        </div>
 
     </>)
 }

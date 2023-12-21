@@ -34,8 +34,8 @@ export default () => {
                             sex={p.gender === 2 ? 'Male' : 'Female'}
                             occupation={p.known_for_department}
                             popularity={p.popularity}
-                            works={p.known_for.map((work) =>
-                                <ul>
+                            works={p.known_for.map((work, i) =>
+                                <ul key={`ul${i}`}>
                                     <li className="works-wrapper">{work.title}</li>
                                 </ul>)}
                         />
