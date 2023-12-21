@@ -13,7 +13,6 @@ export default () => {
             .then(response => response.json())
             .then(obj => {
                 setPersons(obj.results)
-                console.log(obj);
             })
             .catch(error => {
                 setError('There was an error. Please try again!');
@@ -33,7 +32,7 @@ export default () => {
                 {persons.length !== 0 &&
                     <div className="person-list">
                         {persons.map((person) => (
-                            <div className="person-card">
+                            <div key={person.id} className="person-card">
                                 <PersonCard
                                     key={person.id}
                                     name={person.name}
@@ -41,7 +40,7 @@ export default () => {
                                     sex={person.gender === 2 ? 'Male' : 'Female'}
                                     occupation={person.known_for_department}
                                     popularity={person.popularity}
-                                    works={person.known_for.map((work) =>
+                                    works={person.known_for.map((work, i) =>
                                         <ul>
                                             <li className="works-wrapper">{work.title}</li>
                                         </ul>)}
