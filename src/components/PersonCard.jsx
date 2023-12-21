@@ -1,19 +1,17 @@
 export default ({ id, name, occupation, sex, popularity, works, imagePath }) => {
     return (
-        <div className="person-card">
+        <div>
 
-            <h3>{name}</h3>
+            <h3 className="title">{name}</h3>
             <figure className="profile-picture">
-                <img src={imagePath} alt={`Picture of ${name}`} />
+                <img src={`https://image.tmdb.org/t/p/w500/${imagePath}`} alt={`Picture of ${name}`} />
             </figure>
             <section className="person-informations">
-                <p>Sex: {sex}</p>
-                <p>Occupation:{occupation}</p>
-                <p>Popularity: {popularity}</p>
+                <p><strong>Sex:</strong> {sex}</p>
+                <p><strong>Occupation:</strong>{occupation}</p>
+                <p><strong>Popularity:</strong> {popularity}</p>
                 <h4>Most famous movies</h4>
-                <ul>
-                    <li>{works}</li>
-                </ul>
+                <p>{works}</p>
             </section>
 
         </div>
