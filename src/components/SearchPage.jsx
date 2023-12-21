@@ -13,10 +13,15 @@ export default () => {
             api_key: apiKey,
             query: searchValue
         })
-        const response = await fetch(`https://api.themoviedb.org/3/search/person?${searchParams.toString()}`);
-        const { results } = await response.json();
-        setSearchPerson(results);
-    }
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/search/person?${searchParams.toString()}`);
+            const { results } = await response.json();
+            setSearchPerson(results);
+        } catch (error) {
+            console.error(error)
+            setError(error)
+        }
+    };
 
 
     return (
