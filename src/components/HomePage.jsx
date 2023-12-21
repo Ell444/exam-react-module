@@ -24,7 +24,7 @@ export default () => {
     return (
         <div className="person-wrapper">
             <h1 className="head-title">Popular People Today</h1>
-            {error && <div>{error}</div>}
+            {error && <div className="error">{error}</div>}
             {!error && <>
                 {persons.length === 0 &&
                     <div>Loading...</div>

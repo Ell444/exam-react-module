@@ -70,6 +70,21 @@ img {
         
     }
 }
+.main-menu {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    list-style-type: none;
+    padding: 1rem;
+
+    .nav-link {
+    color: rgb(59, 58, 58);
+    text-decoration: none;
+    }
+    .active {
+    color: rgb(185, 178, 178);
+    }
+}
 
 
 

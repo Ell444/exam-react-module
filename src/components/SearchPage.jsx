@@ -23,7 +23,7 @@ export default () => {
         <div>
             <h1>Who are you searching for?</h1>
             <SearchBar onSearch={search} />
-            {error && <div>{error}</div>}
+            {error && <div className="error">{error}</div>}
             <div>
                 {searchPerson.map(p => (
                     <div className="search-page-actors">
